@@ -2,17 +2,12 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 
-
-// TODO: Define an interface for the Coordinates object
 interface Coordinates {
   lat: Number;
   lon: Number;
 }
 
-// TODO: Define a class for the Weather object
-// the date, an icon representation of weather conditions,
-//  a description of the weather for the icon's `alt` tag,
-//  the temperature, the humidity, and the wind speed
+
 class Weather {
   cityName: string;
   date: number;
@@ -41,22 +36,20 @@ class Weather {
   }
 }
 
-// TODO: Complete the WeatherService class
+
 class WeatherService {
-  // TODO: Define the baseURL, API key, and city name properties
+ 
   private baseURL?: string;
   private apiKey?: string;
   private city?: string;
 
-  // private API_KEY = '7419557685aad5ed37c685c51d64f7f9';
-  // private API_BASE_URL = `api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${this.API_KEY}`;
 
   constructor() {
     this.baseURL = process.env.API_BASE_URL || '';
     this.apiKey = process.env.API_KEY || '';
   }
 
-  // TODO: Create fetchLocationData method
+
   private async fetchLocationData(query: string) {
 
     try {
@@ -68,7 +61,7 @@ class WeatherService {
     }
 
   }
-  // TODO: Create destructureLocationData method
+
   private destructureLocationData(locationData: any): Coordinates {
     try {
       const { lat, lon } = locationData;
@@ -90,12 +83,12 @@ class WeatherService {
 
       const weatherData = await response.json();
       return weatherData;
-      // return await this.parseCurrentWeather(response.json);
+  
     } catch (error) {
       console.error('Error fetching weather data:', error);
     }
   }
-  // // TODO: Build parseCurrentWeather method
+
   private async parseCurrentWeather(response: any) {
     if (!response || !response.city) {
       throw new Error(`Error, No city has been registered.`);
@@ -120,7 +113,7 @@ class WeatherService {
     );
   }
 
-  // // TODO: Complete buildForecastArray method
+ 
   private buildForecastArray(currentWeather: Weather, weatherData: any[]) {
     const forecastArray: Weather[] = [];
 
@@ -145,7 +138,7 @@ class WeatherService {
     return fiveDayForecast;
     
       }
-  // TODO: Complete getWeatherForCity method
+
   async getWeatherForCity(city: string) {
         try {
           const cityData = await this.fetchLocationData(city);
@@ -159,7 +152,7 @@ class WeatherService {
           const currentWeather = await this.parseCurrentWeather(weatherData);
           
           const dayForecast = this.buildForecastArray(currentWeather, weatherData.list);
-          console.log(dayForecast);
+   
           return [currentWeather, dayForecast];
 
         } catch (err) {
