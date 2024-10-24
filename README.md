@@ -9,8 +9,8 @@ There is no need for any personal installation unless you would like to make edi
 
 ## Demo
 
-```md
-![screenshot of opening page](./assets/Screenshot%202024-10-24%20152502.png)
+```
+![screenshotopeningpage](./assets/Screenshot%202024-10-24%20152502.png)
 ```
 
 ## Link
