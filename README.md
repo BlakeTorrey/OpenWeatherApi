@@ -9,9 +9,9 @@ There is no need for any personal installation unless you would like to make edi
 
 ## Demo
 
-```
+
 ![screenshotopeningpage](./assets/Screenshot%202024-10-24%20152502.png)
-```
+
 
 ## Link
 https://openweatherapi-ia5q.onrender.com/
